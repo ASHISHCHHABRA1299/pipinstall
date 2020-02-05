@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.Locale;
 
 public class SpeechText extends AppCompatActivity {
 
-    TextView t1;
+    EditText t1;
     Button b1,b2,b3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

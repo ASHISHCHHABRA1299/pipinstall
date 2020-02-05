@@ -16,9 +16,11 @@
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="30sp"
+        android:id="@+id/docdetails"
         />
 
     <EditText
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="28sp"
@@ -28,6 +30,7 @@
 
 
     <EditText
+        android:id="@+id/phonenumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18sp"
@@ -36,6 +39,7 @@
         />
 
     <EditText
+        android:id="@+id/age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18sp"
@@ -44,6 +48,7 @@
         />
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18sp"
@@ -51,6 +56,7 @@
         android:inputType="textEmailAddress"
         />
     <EditText
+        android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18sp"
@@ -112,6 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
         android:textStyle="bold"
+        android:id="@+id/expertise"
         android:hint="Fields of Expertise"
         android:layout_marginLeft="95sp"
         />

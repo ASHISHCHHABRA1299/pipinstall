@@ -7,11 +7,10 @@
     android:orientation="vertical"
     android:padding="20sp"
     tools:context=".SpeechText">
-   <TextView
+   <EditText
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:id="@+id/text1"
-
        android:gravity="center"
        />
 
@@ -22,13 +21,13 @@
         android:layout_marginTop="540sp"
         android:layout_marginLeft="60sp"
         >
+
         <Button
+            android:id="@+id/again"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/again"
             android:text="AGAIN"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
 
         <Button
