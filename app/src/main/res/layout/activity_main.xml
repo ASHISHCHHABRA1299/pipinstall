@@ -2,16 +2,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="18sp"
-    tools:context=".MainActivity"
-    android:scrollbars="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="18sp">
 
         <TextView
             android:layout_width="match_parent"
@@ -66,28 +64,30 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
             >
 
-          <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="DEGREE"
-              android:textStyle="bold"
-              android:textSize="20sp"
-              android:gravity="center"
-              />
-        <android.support.v7.widget.AppCompatCheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30sp"
-            android:text="MBBS"
-            android:id="@+id/mbbs"
-            />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="DEGREE"
+                  android:paddingEnd="10dp"
+                  android:textStyle="bold"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:paddingRight="10dp"
+                  />
 
             <android.support.v7.widget.AppCompatCheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30sp"
+                android:text="MBBS"
+                android:id="@+id/mbbs"
+                />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="MD"
                 android:id="@+id/md"
                 />
@@ -95,7 +95,6 @@
             <android.support.v7.widget.AppCompatCheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30sp"
                 android:text="MS"
                 android:id="@+id/ms"
                 />

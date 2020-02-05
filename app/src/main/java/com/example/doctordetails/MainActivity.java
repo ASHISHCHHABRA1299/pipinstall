@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button signatureButton;
+    Button signatureButton, submitButton;
     ImageView signImage;
 
     @Override
@@ -19,15 +19,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         signatureButton = (Button) findViewById(R.id.getSign);
+        submitButton = findViewById(R.id.submit);
         signImage = (ImageView) findViewById(R.id.imageView1);
         signatureButton.setOnClickListener(onButtonClick);
+        submitButton.setOnClickListener(onButtonClick);
     }
 
     Button.OnClickListener onButtonClick = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent i = new Intent(MainActivity.this, SignatureActivity.class);
-            startActivityForResult(i,0);
+            if(v == signatureButton) {
+                Intent i = new Intent(MainActivity.this, SignatureActivity.class);
+                startActivityForResult(i, 0);
+            }else if (v == submitButton){
+                Intent i = new Intent(MainActivity.this, RecordActivity.class);
+                startActivity(i);
+            }
         }
     };
 
