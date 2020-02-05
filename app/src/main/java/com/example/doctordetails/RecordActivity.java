@@ -14,7 +14,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,8 +28,9 @@ import java.util.ArrayList;
 public class RecordActivity extends AppCompatActivity implements RecognitionListener {
 
     private static final int REQUEST_RECORD_PERMISSION = 100;
-    private TextView returnedText;
+    private EditText returnedText;
     private ToggleButton toggleButton;
+    private Button edit, recordAgain, getPdf;
     private ProgressBar progressBar;
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
@@ -42,10 +45,14 @@ public class RecordActivity extends AppCompatActivity implements RecognitionList
         setContentView(R.layout.activity_record);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        returnedText = (TextView) findViewById(R.id.textView1);
+        returnedText = (EditText) findViewById(R.id.textView1);
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
         toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
+        edit = findViewById(R.id.edit);
+        recordAgain = findViewById(R.id.recordAgain);
+        getPdf = findViewById(R.id.getPdf);
 
+        returnedText.setEnabled(false);
 
         progressBar.setVisibility(View.INVISIBLE);
         speech = SpeechRecognizer.createSpeechRecognizer(this);
@@ -86,7 +93,28 @@ public class RecordActivity extends AppCompatActivity implements RecognitionList
                 }
             }
         });
+
+        edit.setOnClickListener(onButtonClick);
+        recordAgain.setOnClickListener(onButtonClick);
+        getPdf.setOnClickListener(onButtonClick);
     }
+
+    Button.OnClickListener onButtonClick = new Button.OnClickListener(){
+
+        @Override
+        public void onClick(View v) {
+            if (v == edit){
+                returnedText.setEnabled(true);
+            }else if (v == recordAgain){
+                returnedText.setText("");
+                speechString = "";
+                returnedText.setEnabled(false);
+            }else if (v == getPdf){
+                // ToDo send the string to firebase
+
+            }
+        }
+    };
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -189,7 +217,11 @@ public class RecordActivity extends AppCompatActivity implements RecognitionList
 //
 //        returnedText.setText(text);
         System.out.println("inside record "+matches.get(0));
-        speechString = speechString + ". " + matches.get(0);
+        if (speechString.equals("")){
+            speechString = matches.get(0);
+        }else {
+            speechString = speechString + ". " + matches.get(0);
+        }
         returnedText.setText(speechString);
     }
 
